@@ -12,9 +12,27 @@
     crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/estilo.css">
+<script>
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('relogio').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+  }
 
+
+</script>
 </head>
-<body>
+<body  onload="startTime()">
     <h1> Referência: <a href="https://www.youtube.com/watch?v=BYsTrGH6B2s">Using a Public API - Tutorial for Beginners</a>
     </h1>
     <h2>Usando a API da <a href="openweathermap.org" target="_blank">Open Weather Map </a></h2>
@@ -22,6 +40,7 @@
         <img src="" alt="" class="icone">
         <p class="clima">Clima: </p>
         <p class="temperatura">Temperatura: </p>
+        <p  id="relogio"></p>
 
 
     </div>
